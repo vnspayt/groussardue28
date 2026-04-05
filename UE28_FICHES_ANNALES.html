@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UE 28 – Fiches Annales · Musique, Cognition & Cerveau</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #f8f4ff;
+  --card: #ffffff;
+  --purple: #6d28d9;
+  --purple-light: #ede9fe;
+  --purple-mid: #c4b5fd;
+  --pink: #be185d;
+  --pink-light: #fce7f3;
+  --teal: #0f766e;
+  --teal-light: #ccfbf1;
+  --amber: #b45309;
+  --amber-light: #fef3c7;
+  --blue: #1d4ed8;
+  --blue-light: #dbeafe;
+  --green: #047857;
+  --green-light: #d1fae5;
+  --red: #b91c1c;
+  --red-light: #fee2e2;
+  --orange: #c2410c;
+  --orange-light: #ffedd5;
+  --text: #1e1b4b;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #3b0764, #6d28d9, #be185d);
+  color: white;
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::after {
+  content: "";
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #fbbf24, #f87171, #818cf8, #34d399);
+}
+header h1 { font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: .5rem; }
+header .sub { font-size: 1rem; opacity: .9; margin-bottom: .8rem; }
+.badges { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
+.badge { display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); border-radius: 20px; padding: .2rem .9rem; font-size: .82rem; }
+
+/* PROGRESS BAR */
+#pbar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #fbbf24, #f87171, #818cf8); z-index: 9999; transition: width .1s; }
+
+/* NAV */
+nav {
+  background: white;
+  border-bottom: 2px solid var(--border);
+  padding: .8rem 1rem;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+nav a {
+  text-decoration: none; font-size: .78rem; font-weight: 700;
+  padding: .3rem .75rem; border-radius: 20px; transition: all .2s;
+  white-space: nowrap;
+}
+nav a:hover { transform: translateY(-2px); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.n1{background:var(--purple-light);color:var(--purple);}
+.n2{background:var(--teal-light);color:var(--teal);}
+.n3{background:var(--pink-light);color:var(--pink);}
+.n4{background:var(--amber-light);color:var(--amber);}
+.n5{background:var(--blue-light);color:var(--blue);}
+.n6{background:var(--green-light);color:var(--green);}
+.n7{background:var(--red-light);color:var(--red);}
+.n8{background:var(--orange-light);color:var(--orange);}
+
+/* MAIN */
+main { max-width: 1020px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+/* SECTION TITLE */
+.sec-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem; font-weight: 900;
+  display: flex; align-items: center; gap: .6rem;
+  padding: 1rem 1.5rem; border-radius: 14px;
+  margin-bottom: 1.5rem; margin-top: .5rem;
+}
+
+/* ANNALES BANNER */
+.annales-banner {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.5rem;
+  font-size: .93rem;
+}
+.annales-banner strong { color: #92400e; font-size: 1rem; display: block; margin-bottom: .3rem; }
+
+/* CARDS */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  border-left: 5px solid;
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+.card h3 { font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: .7rem; display: flex; align-items: center; gap: .4rem; }
+.card p, .card li { font-size: .96rem; color: #374151; margin-bottom: .3rem; }
+.card ul, .card ol { padding-left: 1.4rem; }
+.card li { margin-bottom: .4rem; }
+
+.c-purple{border-color:var(--purple);}
+.c-teal{border-color:var(--teal);}
+.c-pink{border-color:var(--pink);}
+.c-amber{border-color:var(--amber);}
+.c-blue{border-color:var(--blue);}
+.c-green{border-color:var(--green);}
+.c-red{border-color:var(--red);}
+.c-orange{border-color:var(--orange);}
+
+/* COLORED BOXES */
+.box {
+  border-radius: 10px; padding: 1rem 1.3rem;
+  margin: .8rem 0; font-size: .94rem;
+}
+.box strong { display: block; margin-bottom: .4rem; font-size: 1rem; }
+.bx-purple{background:var(--purple-light);border:1.5px solid var(--purple-mid);}
+.bx-teal{background:var(--teal-light);border:1.5px solid #5eead4;}
+.bx-amber{background:var(--amber-light);border:1.5px solid #fcd34d;}
+.bx-green{background:var(--green-light);border:1.5px solid #6ee7b7;}
+.bx-pink{background:var(--pink-light);border:1.5px solid #f9a8d4;}
+.bx-blue{background:var(--blue-light);border:1.5px solid #93c5fd;}
+.bx-red{background:var(--red-light);border:1.5px solid #fca5a5;}
+.bx-orange{background:var(--orange-light);border:1.5px solid #fdba74;}
+
+/* KEY POINT */
+.key {
+  display: flex; gap: .8rem; align-items: flex-start;
+  background: linear-gradient(135deg, #f5f3ff, #ecfdf5);
+  border: 2px solid #c4b5fd;
+  border-radius: 12px; padding: 1rem 1.2rem;
+  margin: .8rem 0;
+}
+.key-icon { font-size: 1.6rem; flex-shrink: 0; }
+.key-text { font-size: .95rem; }
+.key-text strong { display: block; color: var(--purple); font-size: 1rem; margin-bottom: .2rem; }
+
+/* STUDY CARD */
+.study {
+  background: #f8fafc; border: 1px solid #e2e8f0;
+  border-radius: 10px; padding: .9rem 1.1rem;
+  margin: .7rem 0; font-size: .92rem;
+}
+.study-author { font-weight: 800; color: var(--blue); font-size: .87rem; margin-bottom: .3rem; }
+.study-method { color: var(--muted); font-size: .85rem; font-style: italic; margin-bottom: .3rem; }
+.study-result { color: #1f2937; }
+
+/* GRID */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+@media(max-width:620px){.grid2{grid-template-columns:1fr;}}
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: .8rem 0; }
+th { background: var(--purple); color: white; padding: .6rem .9rem; text-align: left; font-size: .87rem; }
+td { padding: .55rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: #f9fafb; }
+tr:hover td { background: var(--purple-light); }
+
+/* ACCORDION */
+details {
+  background: white; border-radius: 10px;
+  border: 1.5px solid var(--border);
+  margin-bottom: .7rem; overflow: hidden;
+}
+summary {
+  padding: .85rem 1.2rem; font-weight: 700; font-size: .96rem;
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; gap: .5rem;
+}
+summary::-webkit-details-marker{display:none;}
+summary::before{content:"▶";font-size:.7rem;transition:transform .2s;color:var(--purple);}
+details[open] summary::before{transform:rotate(90deg);}
+details > div { padding: 0 1.2rem 1.2rem; }
+
+/* TAGS */
+.tag {
+  display: inline-block; font-size: .7rem; font-weight: 700;
+  padding: .1rem .5rem; border-radius: 20px; margin-left: .3rem;
+}
+.t-etroit{background:#ddd6fe;color:#5b21b6;}
+.t-lointain{background:#d1fae5;color:#065f46;}
+.t-exam{background:#fee2e2;color:#991b1b;font-size:.75rem;}
+.t-annale{background:#fef3c7;color:#92400e;}
+
+/* FLOW */
+.flow{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.7rem 0;}
+.fb{background:var(--purple-light);color:var(--purple);font-weight:700;font-size:.83rem;padding:.45rem .85rem;border-radius:8px;text-align:center;min-width:80px;}
+.fb.teal{background:var(--teal-light);color:var(--teal);}
+.fb.pink{background:var(--pink-light);color:var(--pink);}
+.fb.amber{background:var(--amber-light);color:var(--amber);}
+.fb.green{background:var(--green-light);color:var(--green);}
+.fb.blue{background:var(--blue-light);color:var(--blue);}
+.arr{font-size:1.2rem;color:var(--muted);}
+
+/* DIVIDER */
+.divider{height:2px;background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:2px;margin:2.5rem 0;}
+
+/* SCHEMA */
+.schema{background:white;border-radius:14px;padding:1.4rem;margin:1rem 0;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow-x:auto;}
+.schema-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:.97rem;margin-bottom:1rem;color:var(--purple);}
+
+/* ANNALE QUESTION */
+.aq {
+  background: linear-gradient(135deg, #fff7ed, #fef3c7);
+  border: 2px solid #f59e0b;
+  border-radius: 12px; padding: 1rem 1.3rem;
+  margin: 1rem 0; font-size: .93rem;
+}
+.aq-title { font-weight: 800; color: #92400e; font-size: .95rem; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+.aq-q { font-style: italic; color: #78350f; margin-bottom: .5rem; }
+.aq-rep { background: white; border-radius: 8px; padding: .8rem 1rem; font-size: .9rem; margin-top: .5rem; }
+
+/* CRITIQUE */
+.critique {
+  background: #fff1f2; border: 1.5px solid #fecdd3;
+  border-radius: 10px; padding: .8rem 1.1rem;
+  margin: .6rem 0; font-size: .9rem;
+}
+.critique strong { color: var(--red); display: block; margin-bottom: .2rem; }
+
+/* FOOTER */
+footer{background:#1e1b4b;color:#a5b4fc;text-align:center;padding:2rem;font-size:.88rem;}
+footer a{color:#c4b5fd;}
+
+/* HIGHLIGHT */
+mark{background:#fef08a;padding:.05rem .2rem;border-radius:3px;}
+</style>
+</head>
+<body>
+<div id="pbar"></div>
+
+<header>
+  <h1>🎵 UE 28 – Musique, Cognition & Cerveau</h1>
+  <p class="sub">Fiches de révision complètes · Basées sur les <strong>annales 2022–2025</strong> · Mathilde GROUSSARD · Université de Caen</p>
+  <div class="badges">
+    <span class="badge">📝 Annales analysées</span>
+    <span class="badge">🔬 Études détaillées</span>
+    <span class="badge">✅ Plans types inclus</span>
+    <span class="badge">⚠️ Pièges signalés</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#annales" class="n8">📋 Annales</a>
+  <a href="#s1" class="n1">🏠 Contexte</a>
+  <a href="#s2" class="n2">🧠 Plasticité</a>
+  <a href="#s3" class="n3">🎼 Perception</a>
+  <a href="#s4" class="n4">🎭 Mozart</a>
+  <a href="#s5" class="n5">💬 Langage</a>
+  <a href="#s6" class="n6">📖 Mémoire & QI</a>
+  <a href="#s7" class="n7">❤️ Émotion</a>
+  <a href="#s8" class="n8">📝 Plans & Exam</a>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ANALYSE DES ANNALES -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="annales">
+  <div class="sec-title" style="background:var(--orange-light);color:var(--orange);">📋 Ce qui tombe vraiment à l'examen</div>
+
+  <div class="annales-banner">
+    <strong>⚠️ Analyse des annales 2022, 2023 (x2) et 2025 – Partie GROUSSARD</strong>
+    Tu dois traiter <strong>2 sujets sur 3</strong> · 2h · Copie double max · Pas de documents
+  </div>
+
+  <div class="card c-orange">
+    <h3>🏆 Questions qui reviennent TOUJOURS (sujet Groussard)</h3>
+    <table>
+      <tr><th>Question récurrente</th><th>Années</th><th>Points</th></tr>
+      <tr><td>La musique peut-elle avoir un effet sur les apprentissages scolaires ? Argumentaire construit.</td><td>2022, 2025</td><td>15/20</td></tr>
+      <tr><td>Effets de la pratique musicale sur le fonctionnement cognitif (mnésique, langagier, exécutif)</td><td>2023 avril, 2025</td><td>10/20</td></tr>
+      <tr><td>L'Effet Mozart : définition, méthodologie, résultats, critiques</td><td>2023 juin</td><td>—</td></tr>
+      <tr><td>Effets de la pratique musicale sur l'anatomie cérébrale (au moins 3 exemples)</td><td>2023 juin</td><td>—</td></tr>
+      <tr><td>Limites méthodologiques des études sur la musique (≥ 5)</td><td>2023 juin</td><td>—</td></tr>
+      <tr><td>L'Amusie / MBEA : définition, description, pertinence en clinique</td><td>2022, 2023 avril, 2025</td><td>4–5/20</td></tr>
+      <tr><td>Protocole de recherche : comment concevoir une étude robuste</td><td>2023 avril, 2025</td><td>6/20</td></tr>
+    </table>
+  </div>
+
+  <div class="card c-red">
+    <h3>⚡ Les PIÈGES classiques signalés en TD4 révision</h3>
+    <ul>
+      <li>❌ <strong>Parler d'écoute musicale</strong> quand le sujet demande la <strong>pratique musicale</strong> → hors sujet !</li>
+      <li>❌ <strong>Parler de plasticité cérébrale</strong> quand le sujet demande les effets sur les fonctions cognitives → hors sujet !</li>
+      <li>❌ Oublier de préciser l'<strong>âge CE1 = 7-8 ans</strong> quand le contexte scolaire est demandé</li>
+      <li>❌ Citer des études chez l'adulte sans préciser qu'on <strong>extrapole</strong> à l'enfant</li>
+      <li>❌ Oublier la <strong>conclusion</strong> (explicitement demandée en TD4)</li>
+      <li>❌ Ne citer qu'une seule grande fonction cognitive → en détailler <strong>au moins 3</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S1 : CONTEXTE -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s1">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--purple-light);color:var(--purple);">🏠 Contexte & notions fondamentales</div>
+
+  <div class="card c-purple">
+    <h3>📊 Activités extra-scolaires (S. O'Prey, 2004)</h3>
+    <p>93 % des enfants pratiquent au moins une activité extra-scolaire après l'entrée en CP. L'activité sportive domine (54 % en club), et seulement 1 enfant sur 5 est inscrit dans une école de musique.</p>
+    <div class="box bx-purple">
+      <strong>🎯 Ce qui est démontré (Coulangeon, 2018) :</strong>
+      Une fois les facteurs sociaux contrôlés, <mark>les activités alliant musique + lecture sont les seules</mark> à augmenter les chances d'atteindre le CM2 sans redoublement, et à améliorer modestement les résultats en français et en maths.<br><br>
+      ⚠️ <strong>Effet seuil</strong> : impact <em>négatif</em> à partir de 4 activités ou plus. Les activités culturelles > sportives.
+    </div>
+  </div>
+
+  <div class="card c-teal">
+    <h3>🔁 Le TRANSFERT — notion clé à définir en intro <span class="tag t-exam">⭐ Exam</span></h3>
+    <p>Le transfert consiste à <strong>réutiliser dans un nouveau contexte</strong> une compétence ou connaissance développée dans une situation particulière, afin de réaliser une nouvelle tâche.</p>
+    <div class="grid2">
+      <div class="box bx-pink">
+        <strong>Transfert ÉTROIT <span class="tag t-etroit">étroit</span></strong>
+        Fonctions <em>directement</em> impliquées dans la pratique instrumentale :<br>
+        → Aptitudes <strong>auditives</strong> (hauteur, timbre, mélodie)<br>
+        → Aptitudes <strong>motrices</strong> (doigts, coordination fine)<br>
+        → Aptitudes <strong>somatosensorielles</strong>
+      </div>
+      <div class="box bx-green">
+        <strong>Transfert LOINTAIN <span class="tag t-lointain">lointain</span></strong>
+        Fonctions <em>indirectement</em> améliorées :<br>
+        → <strong>Mémoire</strong> (MDT, épisodique, verbale)<br>
+        → <strong>Fonctions exécutives</strong> (inhibition, planification)<br>
+        → <strong>Langage</strong>, cognition sociale, empathie
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S2 : PLASTICITE -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s2">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--teal-light);color:var(--teal);">🧠 Plasticité cérébrale & modifications anatomiques <span class="tag t-exam">⭐ Annale 2023</span></div>
+
+  <div class="card c-teal">
+    <h3>🔄 Définition de la plasticité cérébrale</h3>
+    <p>Le cerveau n'est <strong>pas une structure figée</strong>. C'est la capacité des neurones à <strong>modifier leurs connexions</strong> selon nos apprentissages et expériences, rendant certains circuits nerveux plus efficaces. Cette plasticité <em>persiste tout au long de la vie</em>.</p>
+    <div class="grid2">
+      <div class="box bx-purple">
+        <strong>Plasticité STRUCTURALE</strong>
+        Modifications physiques :<br>
+        • Densité neuronale = <strong>substance grise</strong> (macrostructure)<br>
+        • Connexions, rapidité = <strong>substance blanche</strong> (microstructure, fibres)<br>
+        • Épaisseur corticale, volume
+      </div>
+      <div class="box bx-teal">
+        <strong>Plasticité FONCTIONNELLE</strong>
+        Modifications du fonctionnement :<br>
+        • Activité cérébrale augmentée<br>
+        • Nouvelles stratégies cognitives<br>
+        • Désengagement progressif (automatisation = libère des ressources)
+      </div>
+    </div>
+    <p style="margin-top:.7rem;">La <strong>neurogenèse</strong> = création de nouveaux neurones tout au long de la vie. Depuis 1944, on sait qu'il existe des cellules souches dans l'<strong>hippocampe</strong> et probablement le cortex préfrontal (Hebb, 1942).</p>
+  </div>
+
+  <div class="card c-green">
+    <h3>🔬 Modifications cérébrales chez les musiciens — <span class="tag t-exam">annale 2023 juin : ≥ 3 exemples</span></h3>
+
+    <div class="study">
+      <div class="study-author">📌 Habib & Besson (2008)</div>
+      <div class="study-result">La pratique musicale répétée modifie l'organisation des aires corticales à 3 niveaux : (1) augmente le nombre de neurones impliqués, (2) favorise leur synchronisation temporelle, (3) augmente le nombre et la force des connexions synaptiques excitatrices et inhibitrices.</div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">📌 Gaser & Schlaug (2003) + Bermudez (2009) — Exemple 1</div>
+      <div class="study-method">Comparaison musiciens pros / amateurs / non-musiciens</div>
+      <div class="study-result">
+        ↗ Substance grise dans les régions liées aux aptitudes auditives, motrices, somatosensorielles :<br>
+        • Régions motrices primaires et somatosensorielles<br>
+        • Régions pré-motrices<br>
+        • Régions pariétales supérieures<br>
+        • Gyrus temporal inférieur<br>
+        <strong>Corrélé à la fréquence de pratique</strong> (plus on pratique, plus la SG augmente)
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">📌 Schlaug & Bangert (2006) — Exemple 2</div>
+      <div class="study-result">
+        ↗ Volume du cortex dans les zones commandant les mouvements des <strong>doigts et de la main</strong>.<br>
+        Modifications différentes selon le type d'instrument (pianiste ≠ violoniste) → adaptation motrice spécifique.
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">📌 Schlaug (1995) & Huntchinson (2002/2003) — Exemple 3 : Corps calleux & Cervelet</div>
+      <div class="study-result">
+        • ↗ Taille du <strong>corps calleux</strong> (unit les 2 hémisphères) → communication inter-hémisphérique plus rapide<br>
+        • ↗ Taille du <strong>cervelet</strong> (rôle dans l'apprentissage moteur) → corrélé à la fréquence de pratique
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">📌 Groussard et al. (2014) — Exemple 4 : Nombre d'années de pratique</div>
+      <div class="study-method">4 groupes : non-musiciens, débutants, intermédiaires, experts</div>
+      <div class="study-result">
+        • Régions <strong>frontales + hippocampe</strong> : se modifient dès les premières années → même les <em>débutants</em> montrent des changements !<br>
+        • Régions <strong>motrices et auditives</strong> : nécessitent beaucoup plus d'années de pratique<br>
+        → Intérêt comme <strong>outil de prévention</strong> chez les personnes âgées
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">📌 Hyde et al. (2009) — Exemple 5 : Inné ou acquis ?</div>
+      <div class="study-method">Étude longitudinale chez des enfants, 15 mois d'entraînement musical</div>
+      <div class="study-result">
+        Augmentation structurale dans les régions <strong>motrices et le corps calleux</strong>, uniquement dans le groupe entraîné (pas dans le groupe contrôle).<br>
+        → Cette augmentation <strong>n'est pas liée au développement normal</strong> : c'est bien la <em>pratique</em> qui cause ces changements, pas des prédispositions génétiques.<br>
+        → Corrélation entre l'augmentation structurale et les <strong>progrès comportementaux</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-blue">
+    <h3>🔬 Imagerie par Tenseur de Diffusion (DTI) — substance blanche</h3>
+    <p>Technique d'IRM qui cartographie <em>in vivo</em> la <strong>substance blanche</strong> (axones myélinisés = "autoroutes" du cerveau). Mesure le mouvement des molécules d'eau le long des fibres.</p>
+    <div class="study">
+      <div class="study-author">Rüber et al. (2013) + Bengtsson et al. (2005)</div>
+      <div class="study-result">
+        • Modifications des fibres de SB au niveau du <strong>cortex moteur droit</strong> chez les pianistes et joueurs de cordes<br>
+        • Corrélées au nombre d'heures de pratique durant l'<strong>enfance</strong><br>
+        • Période sensible : effets plus marqués si apprentissage commencé <strong>avant 7 ans</strong> (Penhune, Steele)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S3 : PERCEPTION MUSICALE -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s3">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--pink-light);color:var(--pink);">🎼 Perception musicale & évaluation <span class="tag t-exam">⭐ Dans TOUTES les annales</span></div>
+
+  <div class="card c-pink">
+    <h3>🧩 Modèle fonctionnel de Peretz (1996)</h3>
+    <p>Ce modèle décrit comment notre cerveau analyse la musique. L'analyse musicale existe très tôt — les zones dédiées au traitement musical sont <strong>indépendantes des zones auditives générales</strong> (prouvé par des patients lésés qui entendaient la parole mais plus la musique).</p>
+
+    <div class="schema">
+      <div class="schema-title">📐 Système de Reconnaissance de la Musique (Peretz, 1996)</div>
+
+      <div style="font-size:.9rem;">
+        <p><strong>ÉTAPE 1 — Analyse perceptive</strong></p>
+        <div class="grid2" style="margin:.5rem 0 1rem;">
+          <div class="box bx-amber">
+            <strong>Dimension MÉLODIQUE</strong>
+            <br>🎵 <strong>Contour</strong> : direction des changements de hauteur (mélodie montante/descendante)
+            <br>🎵 <strong>Intervalles</strong> : différence de hauteur entre 2 notes (ex : soprano vs alto)
+            <br>🎵 <strong>Tonalité</strong> : sous-ensemble de hauteurs et rapports entre elles → acquise sans effort, favorise la mémorisation
+          </div>
+          <div class="box bx-blue">
+            <strong>Dimension TEMPORELLE</strong>
+            <br>⏱️ <strong>Rythme</strong> : regroupement des événements sonores selon leur proximité temporelle → permet de percevoir la pulsation (envie de taper le pied !)
+            <br>⏱️ <strong>Métrique</strong> : organisation des pulsations en mesures (marche = 2 temps, valse = 3 temps)
+          </div>
+        </div>
+
+        <p><strong>ÉTAPE 2 — Correspondance perceptive / répertoire</strong></p>
+        <div class="box bx-purple" style="margin:.5rem 0 1rem;">
+          <strong>Lexique musical</strong> = tous les airs auxquels on a été exposé au cours de sa vie. Permet de créer un <em>sentiment de familiarité</em> : est-ce que cette mélodie est dans ma mémoire ?
+        </div>
+
+        <div class="flow">
+          <div class="fb">Représentation<br>perceptive</div>
+          <div class="arr">→</div>
+          <div class="fb amber">Lexique<br>musical</div>
+          <div class="arr">→</div>
+          <div class="fb teal">RECONNAISSANCE<br>(familiarité)</div>
+          <div class="arr">+</div>
+          <div class="fb green">Lexique<br>verbal</div>
+          <div class="arr">→</div>
+          <div class="fb pink">IDENTIFICATION<br>(nom, paroles)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-blue">
+    <h3>🧪 La MBEA – Batterie de Montréal d'Évaluation de l'Amusie (Peretz, 1996) <span class="tag t-exam">⭐ Annale 2023 avril, 2025</span></h3>
+    <p>Créée par l'équipe d'<strong>Isabelle Peretz</strong> (laboratoire BRAMS, Montréal — 1er labo de neuropsychologie de la musique).</p>
+    <p>Pour adultes et enfants de + de 10 ans. <strong>6 tests × 30 essais = 180 items</strong>.</p>
+
+    <div class="box bx-amber">⚠️ <strong>Fort coût cognitif !</strong> Les performances varient selon la position du test (attention soutenue). Il faut réfléchir à l'ordre de passation. Pas influencée par le genre, mais par l'éducation musicale.</div>
+
+    <table>
+      <tr><th>Domaine</th><th>Test</th><th>Description détaillée</th></tr>
+      <tr><td rowspan="3"><strong>Organisation mélodique</strong></td><td>1. Tonalité</td><td>Paires de mélodies idem/différente — variations de hauteur dans la gamme</td></tr>
+      <tr><td>2. Contour différent</td><td>Idem/différente avec changement de direction mélodique</td></tr>
+      <tr><td>3. Contour identique</td><td>Même contour, hauteurs modifiées — <strong>9 min !</strong> — attention soutenue requise. Moyenne = 24-26/31, zscore classe = 0,83</td></tr>
+      <tr><td rowspan="2"><strong>Organisation temporelle</strong></td><td>4. Rythme</td><td>Discrimination de paires — regroupement temporel</td></tr>
+      <tr><td>5. Métrique</td><td>Marche (2 temps) vs Valse (3 temps) — consigne complexe</td></tr>
+      <tr><td><strong>Lexique musical</strong></td><td>6. Mémoire incidente</td><td>Déjà entendu / jamais — sentiment de familiarité</td></tr>
+    </table>
+
+    <p style="margin-top:.8rem;">📱 <strong>Version enfant MBEMA</strong> (6–8 ans) :<br>
+    • <em>Courte</em> : 3 subtests de 20 items (mélodie, rythme, mémoire)<br>
+    • <em>Longue</em> : 5 subtests de 20 items (hauteur, contour, intervalle, rythme, mémoire)<br>
+    → Chez les enfants : pas d'effet de genre, <strong>effet de l'éducation musicale</strong>, notamment sur le rythme (musiciens >> non-musiciens).</p>
+  </div>
+
+  <div class="card c-red">
+    <h3>😶 L'Amusie — Trouble de la perception musicale <span class="tag t-exam">⭐ Annales 2022, 2023, 2025</span></h3>
+
+    <div class="box bx-red">
+      <strong>Définition à connaître par cœur !</strong>
+      L'<strong>amusie congénitale</strong> est un trouble neuro-génétique touchant environ <strong>4 % de la population</strong> (Kalmus & Fry, 1980). Ces individus sont incapables de développer spontanément certaines habiletés musicales. Le trouble est caractérisé par une difficulté à percevoir de <em>fines variations de hauteur</em>, compromettant la perception et la production musicale. Il est <strong>héréditaire</strong> (Drayna, 2001 ; Peretz, 2007).
+    </div>
+
+    <details>
+      <summary>📋 Distinguer les différents troubles auditifs</summary>
+      <div>
+        <table>
+          <tr><th>Trouble</th><th>Description</th></tr>
+          <tr><td><strong>Surdité corticale</strong></td><td>Déficit de réception corticale — n'entend plus les sons</td></tr>
+          <tr><td><strong>Surdité verbale pure</strong></td><td>Entend les sons mais ne comprend pas la parole</td></tr>
+          <tr><td><strong>Agnosie auditive non verbale</strong></td><td>Comprend la parole mais difficultés avec les sons non verbaux (bruits, musique)</td></tr>
+          <tr><td><strong>Amusie acquise</strong></td><td>Suite à AVC (ex : Maurice Ravel, Che Guevara). Peut exprimer du dégoût à l'écoute musicale.</td></tr>
+          <tr><td><strong>Amusie congénitale</strong></td><td>Présente depuis la naissance, héréditaire, ~4% de la population</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <div class="study">
+      <div class="study-author">Hyde et al. (2006) + Albouy (2015) — Imagerie de l'amusie congénitale</div>
+      <div class="study-result">
+        Associée à une ↘ connectivité entre le <strong>cortex auditif</strong> et le <strong>gyrus frontal inférieur droit</strong> (à noter : le langage est plutôt à gauche !)<br>
+        → Excès de matière grise + déficit de substance blanche + déficit de myéline (mesures IRMf)
+      </div>
+    </div>
+
+    <div class="key">
+      <div class="key-icon">⚠️</div>
+      <div class="key-text">
+        <strong>Pourquoi évaluer la perception musicale AVANT une intervention ? (question annale 2023 et 2025)</strong>
+        Si un patient présente une amusie (congénitale ou acquise), la musique ne produira <em>pas</em> les effets bénéfiques escomptés. Cette évaluation est donc indispensable avant toute thérapie musicale. De même pour l'<strong>anhédonie musicale</strong> (voir section Émotion). On n'utilise pas la musique comme outil chez une personne qui ne la perçoit pas ou n'en ressent pas de plaisir.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S4 : EFFET MOZART -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s4">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--amber-light);color:var(--amber);">🎭 L'Effet Mozart & Écoute musicale <span class="tag t-exam">⭐ Annale 2023 juin</span></div>
+
+  <div class="card c-amber">
+    <h3>🎹 L'article princeps — Rauscher et al. (1993)</h3>
+
+    <div class="box bx-amber">
+      <strong>📌 Ce qu'il faut savoir raconter (question annale : "définir l'effet Mozart, présenter la méthode, les résultats, les critiques")</strong>
+    </div>
+
+    <details open>
+      <summary>🔬 Méthodologie détaillée</summary>
+      <div>
+        <ul>
+          <li><strong>36 étudiants</strong></li>
+          <li><strong>3 tâches de QI spatial</strong> issues de l'échelle Stanford-Binet : Pattern Analysis, Matrices, Paper Folding & Cutting (converties en QI spatial)</li>
+          <li><strong>Variable indépendante intra-sujet</strong> : les 3 sujets passent TOUTES les conditions (ANOVA à mesures répétées)</li>
+          <li>Précédées de <strong>10 min de :</strong><br>
+            → Musique de Mozart (Sonate K448)<br>
+            → Instructions de relaxation<br>
+            → Silence</li>
+          <li>Mesure du pouls avant/après chaque condition</li>
+          <li>3 tests différents utilisés pour éviter l'effet test-retest</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>📊 Résultats</summary>
+      <div>
+        <table>
+          <tr><th>Condition</th><th>Score SAS moyen</th><th>QI spatial</th></tr>
+          <tr><td>🎵 Mozart</td><td>57,56</td><td><strong>119</strong></td></tr>
+          <tr><td>🧘 Relaxation</td><td>54,61</td><td>111</td></tr>
+          <tr><td>🤫 Silence</td><td>54,00</td><td>110</td></tr>
+        </table>
+        <p style="margin-top:.7rem;">→ <strong>+8 à 9 points de QI spatial</strong> après Mozart (ANOVA significative)</p>
+        <p>→ Pas d'effet du pouls sur les résultats</p>
+        <div class="box bx-red" style="margin-top:.6rem;">
+          <strong>⚠️ Limite majeure :</strong> L'effet ne dure que <strong>10 à 15 minutes</strong> ! Or, l'intelligence ne fluctue pas en 10-15 min… Ce n'est donc PAS du QI général qu'on mesure.
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>⚡ Analyse critique — pourquoi l'article a été critiqué</summary>
+      <div>
+        <ul>
+          <li>On mesure le QI <em>spatial</em>, pas le QI général — généralisation abusive</li>
+          <li>Quid d'autres musiques ? D'autres fonctions cognitives (MDT, raisonnement verbal) ?</li>
+          <li>Quid du délai entre écoute et tâche ? De la durée d'écoute ?</li>
+          <li>Quid comparaison musiciens vs non-musiciens ?</li>
+          <li><strong>Méta-analyse Latendresse (2006)</strong> : 26 études → 8 reproduisent l'effet, 17 ne le reproduisent pas</li>
+          <li>On a trouvé ensuite un "effet Bach", un "effet Stephen King" (histoire lue à voix haute)… → ce n'est pas Mozart qui est spécial !</li>
+          <li>Le <strong>tempo</strong> jouerait sur la synchronisation neurale, mais tempo ≠ style de musique</li>
+        </ul>
+        <div class="box bx-teal" style="margin-top:.7rem;">
+          <strong>✅ Explication actuelle :</strong> L'effet est lié au <strong>plaisir de l'écoute</strong> et à l'<strong>éveil cognitif</strong> → activation du circuit de la récompense → sécrétion de dopamine → meilleur fonctionnement cognitif global. C'est l'éveil et les émotions, pas Mozart.
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="card c-teal">
+    <h3>⚡ Effets de l'ÉCOUTE musicale sur la cognition</h3>
+    <div class="grid2">
+      <div class="box bx-red">
+        <strong>❌ Effet NÉGATIF (pendant la tâche)</strong>
+        Écouter de la musique <em>en même temps</em> qu'une tâche cognitive = <strong>double tâche</strong> → interférence → baisse des performances (méta-analyse Kampfe et al., 2010).<br><br>
+        Le cerveau traite en permanence les stimuli auditifs, même si on essaie de se concentrer. <strong>Plus la tâche est complexe, plus l'interférence est importante.</strong>
+      </div>
+      <div class="box bx-green">
+        <strong>✅ Effet POSITIF (avant la tâche)</strong>
+        Écouter de la musique <em>avant</em> une tâche = préparation émotionnelle positive.<br><br>
+        • Tempo rapide + mode <strong>majeur</strong> → humeur joyeuse/positive<br>
+        • Tempo lent + mode <strong>mineur</strong> → humeur triste/négative<br>
+        → La musique contribue à créer une ambiance (comme dans les films)
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted);margin-top:.6rem;">💡 Conseil pratique : la musique peut être utile pour des <em>tâches peu coûteuses</em> (maintien du rythme, motivation). Pour travailler efficacement : silence ou bruit blanc de préférence.</p>
+  </div>
+
+  <div class="card c-purple">
+    <h3>🎹 Couplage auditivomoteur <span class="tag t-etroit">transfert étroit</span></h3>
+    <p>Chez les musiciens, il se crée une <strong>association très forte entre séquences motrices ↔ événements acoustiques</strong> :</p>
+    <div class="grid2">
+      <div class="box bx-amber">
+        <strong>Le cerveau "entend" la musique qu'il voit jouer</strong><br>
+        → Activation du cortex auditif à la simple vue de la musique<br>
+        (Hazegawa 2004, Bangert 2006)
+      </div>
+      <div class="box bx-purple">
+        <strong>Le cerveau "joue" le morceau entendu</strong><br>
+        → Activation des régions motrices à la seule écoute<br>
+        (Hauisen & Knösche, 2001)
+      </div>
+    </div>
+    <p style="font-size:.88rem;margin-top:.6rem;">En IRMf (Bangert, pianistes vs non-musiciens) : les pianistes montrent des activations supplémentaires dans les régions frontales inférieures et temporales supérieures lors du traitement musical.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S5 : LANGAGE -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s5">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--blue-light);color:var(--blue);">💬 Musique & Langage <span class="tag t-lointain">transfert lointain</span></div>
+
+  <div class="card c-blue">
+    <h3>🔗 Pourquoi musique → langage ? <span class="tag t-exam">⭐ Annale 2025 : "niveau langagier"</span></h3>
+    <p>Parler et chanter se développent <strong>presque simultanément</strong> chez l'enfant. La musique influe sur la parole, et la langue maternelle influence la façon dont on perçoit la musique. Ce parallèle rend plausible que la pratique musicale améliore les capacités verbales (Patel & Iversen, 2007).</p>
+
+    <div class="box bx-blue">
+      <strong>Arguments dans la littérature :</strong>
+      <ul style="margin-top:.4rem;">
+        <li>↗ Performances en vocabulaire et en lecture chez les enfants avec cours de musique (Moreno 2011, Chan 1998, Forgeard 2008)</li>
+        <li>↗ Perception de faibles changements de hauteur dans la parole (Magne, Schon & Besson, 2006)</li>
+        <li>Détection plus précoce (10–11 ans) d'incongruités syntaxiques verbales chez les musiciens (Jentschke & Koelsch, 2009)</li>
+        <li>↗ Capacités de perception du langage et de la lecture après seulement <strong>6 mois</strong> de leçons musicales (Moreno, 2009)</li>
+        <li>Effets aussi sur l'apprentissage d'une seconde langue (White 2013, Yang 2014)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card c-purple">
+    <h3>🧠 Bases cérébrales du lien musique-langage</h3>
+
+    <div class="schema">
+      <div class="schema-title">📐 Le Faisceau Arqué — connexion musique-langage</div>
+      <div class="flow">
+        <div class="fb amber">Aire de Broca<br><small>(production du langage)</small></div>
+        <div class="arr">←————→</div>
+        <div class="fb teal">Faisceau Arqué<br><small>(fibre de connexion)</small></div>
+        <div class="arr">←————→</div>
+        <div class="fb pink">Aire de Wernicke<br><small>(compréhension)</small></div>
+      </div>
+      <p style="font-size:.85rem;margin-top:.7rem;">Le faisceau arqué est <strong>augmenté à gauche chez les musiciens</strong>. Après apprentissage d'un instrument → changements dans ce faisceau → <em>transfert probable vers le langage</em>.</p>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Sluming et al. (2002)</div>
+      <div class="study-result">
+        ↗ Aire de Broca + densité de substance grise chez les musiciens.<br>
+        Les musiciens <strong>conservent une densité de SG stable dans l'aire de Broca malgré l'avancée en âge</strong> → effet neuroprotecteur potentiel !
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Kraus et al. (2014) — Milieux défavorisés</div>
+      <div class="study-method">44 enfants (~8 ans), 2 groupes aléatoires : 1 an vs 2 ans de musique (2×/semaine)</div>
+      <div class="study-result">
+        La discrimination de syllabes est améliorée après <strong>2 ans</strong>, mais pas après 1 an seul.<br>
+        → Les bénéfices sont possibles même en milieu défavorisé, mais il faut <mark>au minimum 2 ans</mark> d'entraînement pour observer des effets sur le langage.
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-teal">
+    <h3>📚 Lien musique-langage et apprentissage de la lecture</h3>
+    <div class="study">
+      <div class="study-author">Boduc — Comptines avec/sans musique (entre 4 et 6 ans)</div>
+      <div class="study-method">4 groupes : musique seule / langage seul / musique+langage / contrôle passif</div>
+      <div class="study-result">
+        Groupes "musique" et "musique+langage" → meilleures performances en conscience phonologique.<br>
+        Le groupe "musique seule" se démarque particulièrement !<br>
+        → À cet âge (4–6 ans), les enfants développent la capacité d'analyser la structure sonore des mots.
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Bonacina et al. (2015)</div>
+      <div class="study-method">Entraînement rythmique de la lecture. Points forts : randomisation. Limites : petit échantillon (28), groupe contrôle passif, effet test-retest.</div>
+      <div class="study-result">L'entraînement rythmique améliore la vitesse et la précision de lecture → bénéfices potentiels d'un entraînement musical.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S6 : MEMOIRE & QI -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s6">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--green-light);color:var(--green);">📖 Mémoire, QI & Fonctions exécutives <span class="tag t-lointain">transfert lointain</span></div>
+
+  <div class="card c-green">
+    <h3>💾 Musique & Mémoire <span class="tag t-exam">⭐ Annale 2025</span></h3>
+
+    <div class="box bx-purple">
+      <strong>Mécanisme clé : La Boucle Phonologique</strong><br>
+      Les informations musicales et verbales sont toutes deux stockées et maintenues en <strong>Mémoire de Travail (MDT) au sein de la boucle phonologique</strong>. En pratiquant la musique, on entraîne cette boucle → bénéfice indirect sur la mémoire verbale.
+    </div>
+
+    <div class="study">
+      <div class="study-author">Degé (2011)</div>
+      <div class="study-result">↗ Performances en mémoire à court terme visuelle ET auditive après <strong>2 ans</strong> de cursus musical. La différence est principalement observée au niveau de la <strong>mémoire de travail et de l'attention</strong>.</div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Schendel & Palmer (2007)</div>
+      <div class="study-result">Les musiciens, par leur écoute musicale régulière, stimulent leur boucle phonologique → ↗ performances pour la <strong>mémoire verbale</strong>.</div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Hanna-Pladdy & MacKay (2011)</div>
+      <div class="study-result">Les musiciens développent par leur apprentissage des compétences spécifiques pour la <strong>mémoire de travail</strong>.</div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Franklin et al. (2008) & Huang et al. (2010) — Mémoire à long terme</div>
+      <div class="study-result">
+        ↗ Mémoire épisodique verbale (rappel de mots) avec l'entraînement musical.<br>
+        En IRMf : ↗ activation du cortex occipital bilatéral (imagerie mentale visuelle) + recrutement plus important des <strong>régions frontales, de l'amygdale et de l'hippocampe</strong>.<br>
+        → Observations principalement fonctionnelles.
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Groussard et al. (2010)</div>
+      <div class="study-result">Différences fonctionnelles ET anatomiques de la partie antérieure de l'<strong>hippocampe gauche</strong> en lien avec l'expertise musicale → développement particulier des habiletés mnésiques lors de l'apprentissage musical.</div>
+    </div>
+  </div>
+
+  <div class="card c-purple">
+    <h3>🧠 Musique & QI / Fonctions exécutives <span class="tag t-exam">⭐ Annale 2025</span></h3>
+
+    <div class="study">
+      <div class="study-author">Schellenberg (2014) — 144 enfants, 4 groupes, 38 semaines</div>
+      <div class="study-method">4 groupes : leçon de piano / leçon de chant / leçon de théâtre / aucune activité</div>
+      <div class="study-result">
+        Après 38 semaines :<br>
+        • Groupes Piano et Chant → <strong>meilleures performances aux tests de QI</strong> vs théâtre et contrôle<br>
+        • Ces mêmes enfants apprécient mieux les <strong>changements de prosodie</strong><br>
+        • Groupe Théâtre → meilleurs scores de <strong>socialisation</strong><br>
+        → Leçon : différentes activités développent différentes compétences !
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Jaschke et al. (2018) — 176 enfants, étude longitudinale 2,5 ans</div>
+      <div class="study-method">
+        4 groupes (musique, musique+arts visuels, arts visuels, contrôle). Moyenne d'âge : 6,4 ans.<br>
+        Évaluation de : planification (Tour de Londres), inhibition (Go/No-Go), MCT visuo-spatial, QI verbal (WISC III), performances académiques (CITO)
+      </div>
+      <div class="study-result">
+        Meilleures performances des enfants avec leçons structurées de musique en :<br>
+        • <strong>QI verbal</strong><br>
+        • <strong>Inhibition</strong><br>
+        • <strong>Planification</strong><br>
+        → Suggère une amélioration de la réussite scolaire médiée par l'amélioration des <strong>fonctions exécutives</strong>.
+      </div>
+    </div>
+
+    <div class="study">
+      <div class="study-author">Forgeard et al. (2008) — Longitudinal</div>
+      <div class="study-result">
+        ↗ Discrimination auditive, habiletés motrices, vocabulaire, raisonnement non-verbal chez enfants avec leçons de musique.<br>
+        → Facilitation de l'apprentissage des <strong>mathématiques</strong> : l'organisation rythmique favorise la compréhension des fractions !
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-amber">
+    <h3>⚗️ Robustesse méthodologique — limites fréquentes <span class="tag t-exam">⭐ Annale 2023 juin : "≥ 5 limites"</span></h3>
+
+    <p>La conclusion de Dumont et al. (2017) : <strong>résultats hétérogènes</strong> en raison de la diversité des méthodologies.</p>
+
+    <p style="margin:.6rem 0 .3rem;"><strong>Critères d'une bonne étude :</strong></p>
+    <table>
+      <tr><th>Critère</th><th>Problème fréquent</th><th>Solution</th></tr>
+      <tr><td>Taille d'échantillon</td><td>Trop petit (ex : 28 participants)</td><td>N suffisant pour puissance statistique</td></tr>
+      <tr><td>Randomisation</td><td>Absence → biais de sélection</td><td>Attribution aléatoire aux groupes</td></tr>
+      <tr><td>NSE / NSC</td><td>Non pris en compte</td><td>Apparier ou contrôler le milieu socio-économique</td></tr>
+      <tr><td>Groupes contrôle</td><td>Un seul groupe (passif)</td><td>2 groupes : actif (autre activité) + passif</td></tr>
+      <tr><td>Durée d'entraînement</td><td>Trop courte (4 semaines = insuffisant)</td><td>Minimum 1 an, idéalement 2 ans</td></tr>
+      <tr><td>Nature des tâches</td><td>Trop variées (écoute + chant + instrument)</td><td>Tâches musicales ciblées</td></tr>
+      <tr><td>Évaluations</td><td>Non standardisées → comparaison impossible</td><td>Évaluations ciblées et standardisées</td></tr>
+      <tr><td>Effet Rosenthal (Pygmalion)</td><td>Attentes de l'enseignant influencent l'élève</td><td>Double aveugle, évaluateurs indépendants</td></tr>
+      <tr><td>Effet Hawthorne</td><td>Le sujet sait qu'il est observé → change son comportement</td><td>Contrôle de la conscience de participation</td></tr>
+    </table>
+
+    <div class="box bx-orange" style="margin-top:.8rem;">
+      <strong>⭐ Application à l'étude des étudiants (annale 2025, question 3) :</strong><br>
+      L'étude proposée (CE2, école Piaf vs école Malraux, 4 semaines, 20 min × 2/sem) présente de nombreuses limites :<br>
+      1. <strong>Pas de randomisation</strong> : les groupes sont issus de 2 écoles différentes → variables confondantes (NSE, enseignants, ressources…)<br>
+      2. <strong>Durée trop courte</strong> : 4 semaines est insuffisant (la littérature recommande 1–2 ans minimum)<br>
+      3. <strong>Un seul groupe contrôle passif</strong> : pas de groupe actif (ex : activité sportive ou artistique autre)<br>
+      4. <strong>NSE non contrôlé</strong> : les 2 écoles peuvent avoir des populations très différentes<br>
+      5. <strong>Effet Hawthorne</strong> : les enfants sauront qu'ils participent à une étude<br>
+      6. <strong>Pas de mesure pre-test</strong> : impossible de mesurer l'évolution réelle
+    </div>
+  </div>
+
+  <div class="card c-teal">
+    <h3>🎓 Projets concrets pour les enfants en difficulté</h3>
+    <div class="grid2">
+      <div class="box bx-teal">
+        <strong>🎻 El Sistema (Venezuela)</strong><br>
+        Orchestre collectif. Travaille sur l'estime de soi et la sensibilité. Associe enseignants et enfants au même niveau → pas de mise en échec.
+      </div>
+      <div class="box bx-amber">
+        <strong>🎼 Démos – Philharmonie de Paris</strong><br>
+        Enfants 7–12 ans, orchestre sur 3 ans. Accès aux arts, insertion sociale. + de 6 400 enfants.<br>
+        <a href="https://demos.philharmoniedeparis.fr" target="_blank" style="color:var(--blue);font-size:.83rem;">🔗 demos.philharmoniedeparis.fr</a>
+      </div>
+    </div>
+    <div class="study" style="margin-top:.8rem;">
+      <div class="study-author">MéloDys — Rééducation cognitivo-musicale (2011)</div>
+      <div class="study-result">
+        Méthode née d'une collaboration orthophoniste + musicienne + neurologue. Basée sur l'<strong>intermodalité</strong> = sollicitation simultanée des systèmes visuel, auditif, somesthésique et moteur.<br>
+        <strong>Hypothèse</strong> : la musique régulière renforce les connexions cérébrales sous-développées chez les dyslexiques.<br>
+        2 études chez des enfants DL → <strong>amélioration significative de variables non entraînées</strong> (linguistiques et non-linguistiques).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S7 : EMOTION -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s7">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--red-light);color:var(--red);">❤️ Émotions, Récompense & Anhédonie</div>
+
+  <div class="card c-red">
+    <h3>🎭 Développement des émotions musicales</h3>
+    <ul>
+      <li><strong>Dès 9 mois</strong> : le bébé discrimine la valence émotionnelle (positive vs négative) — Flom, 2008. <em>Pas besoin d'expertise musicale !</em></li>
+      <li><strong>Dès 6 ans</strong> : compétences identiques aux adultes pour identifier les émotions de base (tempo + mode)</li>
+      <li>Reconnaissance très rapide : ~<strong>500 ms</strong> pour identifier la valence (Peretz 1998, Vieillard 2008)</li>
+    </ul>
+    <p style="margin-top:.6rem;">→ Le <strong>choix de la musique est donc crucial</strong> dans une prise en charge !</p>
+  </div>
+
+  <div class="card c-pink">
+    <h3>🏆 Circuit de la récompense & plaisir musical</h3>
+    <div class="study">
+      <div class="study-author">Zatorre & Blood (2001) + Mas Herrero et al. (2021)</div>
+      <div class="study-result">
+        Les zones cérébrales activées par le plaisir musical sont <strong>les mêmes</strong> que pour les autres plaisirs :<br>
+        • <strong>Amygdale</strong><br>
+        • <strong>Striatum ventral</strong><br>
+        • <strong>Cortex préfrontal orbital ventromédian</strong><br>
+        → Plaisir musical = plaisir alimentaire = plaisir sexuel = plaisir jeux d'argent !<br><br>
+        Les émotions déplaisantes activent d'autres régions : gyrus parahippocampique, cortex orbitofrontal.
+      </div>
+    </div>
+    <div class="key">
+      <div class="key-icon">💡</div>
+      <div class="key-text">
+        <strong>Mécanisme : musique → plaisir → dopamine → meilleure cognition</strong>
+        C'est CE mécanisme qui explique l'effet bénéfique de la musique sur les apprentissages. La dopamine facilite le fonctionnement cognitif global. Voilà pourquoi le <em>plaisir</em> de l'activité est indispensable !
+      </div>
+    </div>
+  </div>
+
+  <div class="card c-amber">
+    <h3>😶 Anhédonie musicale & BMRQ <span class="tag t-exam">⭐ Important en clinique</span></h3>
+
+    <div class="box bx-red">
+      <strong>Définitions à connaître !</strong><br>
+      • <strong>Anhédonie</strong> = incapacité à ressentir des émotions positives lors de situations habituellement plaisantes.<br>
+      • <strong>Anhédonie musicale</strong> = identifiée pour la 1ère fois par Mas-Herrero et al. (2014). Peut être <em>acquise</em> (AVC, dépression, trauma crânien…) ou <em>innée</em> (toujours eu une très faible sensibilité musicale).<br>
+      • Mécanisme : défaut de connectivité entre le cortex auditif et le circuit de la récompense.
+    </div>
+
+    <p><strong>Questionnaire BMRQ</strong> (Barcelona Music Reward Questionnaire) — 20 questions, 5 sous-scores :</p>
+    <table>
+      <tr><th>Sous-score</th><th>Questions</th><th>Ce que ça mesure</th></tr>
+      <tr><td>Recherche de musique</td><td>Q2, 7, 11, 17</td><td>Tendance à chercher et écouter de la musique</td></tr>
+      <tr><td>Réaction émotionnelle</td><td>Q3, 8, 12, 18</td><td>Intensité des émotions ressenties</td></tr>
+      <tr><td>Régulation de l'humeur</td><td>Q4, 9, 14, 19</td><td>Utilisation de la musique pour gérer ses émotions</td></tr>
+      <tr><td>Aspect sensori-moteur</td><td>Q5, 10, 15, 20</td><td>Envie de bouger, danser (⚠️ sens inversé Q5)</td></tr>
+      <tr><td>Aspect social</td><td>Q1, 6, 13, 16</td><td>Partage social de la musique</td></tr>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5rem;">Moyenne = 78,42 (ET = 10,47). <strong>⚠️ Q2 et Q5 : sens inversé !</strong></p>
+
+    <p style="margin-top:.7rem;"><strong>3 profils</strong> : Hyperhédonique (très sensible) / Standard / Anhédonique (peu sensible).</p>
+    <p style="margin-top:.4rem;"><strong>Différences selon Mas-Herrero (2013)</strong> : Score ↘ avec l'âge ; femmes > hommes en réaction émotionnelle et régulation de l'humeur ; hommes > femmes en recherche de musique ; musiciens > non-musiciens en réaction émotionnelle.</p>
+
+    <div class="key">
+      <div class="key-icon">⚠️</div>
+      <div class="key-text">
+        <strong>Implication clinique directe (question annale 2023 & 2025)</strong>
+        Avant toute prise en charge musicale, il faut vérifier l'absence d'<strong>amusie ET d'anhédonie musicale</strong>. Si le patient ne perçoit pas correctement la musique (amusie) ou n'en ressent pas de plaisir (anhédonie), l'intervention musicale sera inefficace voire contre-productive.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- S8 : PLANS & CONSEILS EXAM -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section id="s8">
+  <div class="divider"></div>
+  <div class="sec-title" style="background:var(--purple-light);color:var(--purple);">📝 Plans types & Conseils pour l'examen</div>
+
+  <!-- PLAN TYPE 1 -->
+  <div class="aq">
+    <div class="aq-title">📌 SUJET TYPE 1 (annales 2022 et 2025)</div>
+    <div class="aq-q">"La musique peut-elle avoir un effet sur les apprentissages scolaires ?" ou "Expliquez pourquoi les chercheurs en neurosciences de la musique pensent que l'enseignement musical devrait être augmenté à l'école élémentaire, en vous appuyant sur les effets au niveau mnésique, langagier et exécutif." (/10–15 pts)</div>
+    <div class="aq-rep">
+      <p><strong>📋 Plan recommandé :</strong></p>
+      <p><strong>Introduction</strong> (1 paragraphe) : Contextualiser (Coulangeon, activités extra-scolaires, musique+lecture = seules qui améliorent la réussite). Définir le <em>transfert</em> et la <em>plasticité cérébrale</em>. Préciser : il s'agit de la <em>pratique musicale</em> (pas l'écoute). Préciser l'âge si contexte scolaire (CE1 = 7-8 ans, CE2 = 8-9 ans). Annoncer le plan.</p>
+      <p style="margin-top:.6rem;"><strong>I. Effets au niveau du LANGAGE</strong> (Patel & Iversen, Moreno, Jentschke & Koelsch, Kraus → conscience phonologique, lecture, vocabulaire). Lien avec l'apprentissage de la lecture en primaire.</p>
+      <p style="margin-top:.4rem;"><strong>II. Effets au niveau MNÉSIQUE</strong> (Degé, Schendel & Palmer, Franklin, Groussard). MDT + boucle phonologique → maintenir consignes données à l'oral. MLT → apprendre poésies, règles de grammaire, vocabulaire.</p>
+      <p style="margin-top:.4rem;"><strong>III. Effets au niveau des FONCTIONS EXÉCUTIVES</strong> (Jaschke → inhibition, planification, QI verbal ; Schellenberg → QI). Lien avec TDAH, maintien de l'attention en classe. Motricité fine + couplage auditivomoteur → écriture.</p>
+      <p style="margin-top:.4rem;">(+ Maths : Forgeard, rythme → fractions)</p>
+      <p style="margin-top:.6rem;"><strong>Synthèse + Préconisations</strong> : éveil musical régulier (écoute + pratique) ; projet d'école durable (plusieurs fois/semaine, minimum sur l'année) ; vérifier absence d'amusie (~4% des enfants) et d'anhédonie ; laisser les enfants choisir la musique ; impliquer les enseignants (Démos, El Sistema) ; activité ludique.</p>
+      <p style="margin-top:.6rem;"><strong>⚠️ Précautions importantes :</strong> Les études majeures ont été réalisées chez l'adulte → on <em>extrapole</em> à l'enfant. Les effets existent mais ne sont pas "magiques" ni énormes. Hétérogénéité des résultats due aux limites méthodologiques.</p>
+      <p style="margin-top:.6rem;"><strong>Conclusion</strong> (obligatoire ! signalée en TD4)</p>
+    </div>
+  </div>
+
+  <!-- PLAN TYPE 2 -->
+  <div class="aq">
+    <div class="aq-title">📌 SUJET TYPE 2 (annale 2023 juin)</div>
+    <div class="aq-q">"Définir l'effet Mozart, présenter la méthode et les résultats de l'expérience princeps, puis expliquer pourquoi cet article a été critiqué."</div>
+    <div class="aq-rep">
+      <p><strong>1. Définition :</strong> L'effet Mozart = idée selon laquelle écouter de la musique de Mozart améliorerait les capacités cognitives (notamment QI spatial). Issu de l'article princeps de Rauscher et al. (1993).</p>
+      <p style="margin-top:.4rem;"><strong>2. Méthode :</strong> 36 étudiants, 3 tâches QI spatial, 3 conditions intra-sujet (Mozart / relaxation / silence, 10 min chacune), ANOVA à mesures répétées.</p>
+      <p style="margin-top:.4rem;"><strong>3. Résultats :</strong> QI spatial Mozart = 119, relaxation = 111, silence = 110. +8-9 pts. Mais effet ne dure que 10–15 min !</p>
+      <p style="margin-top:.4rem;"><strong>4. Critiques :</strong> QI spatial ≠ QI général / intelligence ne fluctue pas en 15 min / méta-analyse Latendresse (17/26 études ne reproduisent pas) / effet Bach, effet Stephen King trouvés → c'est l'éveil cognitif et le plaisir, pas Mozart.</p>
+    </div>
+  </div>
+
+  <!-- PLAN TYPE 3 -->
+  <div class="aq">
+    <div class="aq-title">📌 SUJET TYPE 3 (annale 2023 avril)</div>
+    <div class="aq-q">"Après avoir présenté les travaux montrant des bénéfices de la pratique musicale sur le fonctionnement cognitif, proposez un protocole testant l'effet d'une intervention musicale à l'école élémentaire." (/16 pts)</div>
+    <div class="aq-rep">
+      <p><strong>Partie 1 — Argumentaire (comme sujet type 1)</strong></p>
+      <p style="margin-top:.6rem;"><strong>Partie 2 — Protocole :</strong></p>
+      <ul style="padding-left:1.3rem;margin-top:.3rem;">
+        <li><strong>Hypothèse</strong> : La pratique musicale structurée (X fois/semaine, X semaines) améliore [fonctions exécutives / lecture / mémoire verbale] chez les enfants de X ans</li>
+        <li><strong>Population</strong> : enfants de CE1/CE2, N suffisant (ex: ≥ 60), appariés sur âge, QI, NSE, genre → <em>randomisation</em></li>
+        <li><strong>Groupes</strong> : 3 groupes = intervention musicale (actif 1) + autre activité artistique (actif 2) + contrôle passif</li>
+        <li><strong>Matériel</strong> : type d'intervention précisé (instrument, chant, rythme), durée de séance, fréquence, durée totale (minimum 1 an)</li>
+        <li><strong>Mesures</strong> : pré-test et post-test avec des évaluations standardisées (MBEA pour perception, WISC pour QI, tests de lecture, tâches de MDT…)</li>
+        <li><strong>Contrôles</strong> : évaluer amusie au préalable (MBEA) ; contrôler effet Hawthorne ; évaluateurs en aveugle</li>
+        <li><strong>Analyses</strong> : ANOVA à mesures répétées, comparaison pré/post pour chaque groupe</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PLAN TYPE 4 : MBEA -->
+  <div class="aq">
+    <div class="aq-title">📌 SUJET TYPE 4 — MBEA & Pertinence clinique (annales 2022, 2023, 2025)</div>
+    <div class="aq-q">"Décrire la MBEA. Pourquoi est-il pertinent de proposer cette évaluation avant une intervention musicale ?" (/4 pts)</div>
+    <div class="aq-rep">
+      <p><strong>Description :</strong> La MBEA (Batterie de Montréal d'Évaluation de l'Amusie) est un outil créé par l'équipe d'Isabelle Peretz (labo BRAMS, Montréal). Pour adultes et enfants > 10 ans. 6 tests (180 items) : organisation mélodique (tonalité, contour différent, contour identique), organisation temporelle (rythme, métrique), lexique musical (mémoire incidente).</p>
+      <p style="margin-top:.5rem;"><strong>Pertinence clinique :</strong> Avant de mettre en place une intervention musicale auprès d'un patient, il faut s'assurer qu'il est <em>capable</em> de percevoir la musique normalement. En effet : (1) Si présence d'<strong>amusie congénitale</strong> (~4% de la population), la musique ne produira pas les effets escomptés car les substrats neurologiques nécessaires sont absents ou altérés. (2) De même pour l'<strong>anhédonie musicale</strong> (BMRQ) : si le patient ne ressent pas de plaisir à l'écoute de la musique, le circuit de la récompense ne sera pas activé, et les effets bénéfiques liés à la dopamine n'auront pas lieu. Cette évaluation préalable est donc indispensable à toute prise en charge éthique et efficace.</p>
+    </div>
+  </div>
+
+  <!-- TABLEAU AUTEURS -->
+  <div class="card c-teal">
+    <h3>📚 Tableau récapitulatif — auteurs à citer à l'exam</h3>
+    <table>
+      <tr><th>Auteur(s) / Année</th><th>Sujet</th><th>Résultat clé</th></tr>
+      <tr><td>Coulangeon, 2018</td><td>Activités extra-scolaires</td><td>Effet seuil à 4 activités ; musique + lecture = meilleures pour la scolarité</td></tr>
+      <tr><td>Peretz, 1996</td><td>Modèle perception musicale</td><td>MBEA, 6 tests, amusie congénitale</td></tr>
+      <tr><td>Habib & Besson, 2008</td><td>Modifications corticales</td><td>3 niveaux de modification (neurones, synchronisation, connexions)</td></tr>
+      <tr><td>Gaser & Schlaug, 2003</td><td>Substance grise musiciens</td><td>+ SG régions motrices/auditives, corrélé à la fréquence</td></tr>
+      <tr><td>Schlaug, 1995</td><td>Corps calleux</td><td>+ taille chez musiciens → communication inter-hémisphérique</td></tr>
+      <tr><td>Groussard et al., 2014</td><td>Années de pratique & SG</td><td>Hippocampe + frontal dès les débuts ; moteur/auditif = long terme</td></tr>
+      <tr><td>Hyde et al., 2009</td><td>Enfants 15 mois</td><td>Plasticité = pratique, pas prédispositions innées</td></tr>
+      <tr><td>Rüber et al., 2013</td><td>DTI, substance blanche</td><td>SB cortex moteur droit, selon l'instrument</td></tr>
+      <tr><td>Rauscher et al., 1993</td><td>Effet Mozart</td><td>+8-9 pts QI spatial, mais 10-15 min seulement</td></tr>
+      <tr><td>Latendresse et al., 2006</td><td>Méta-analyse Effet Mozart</td><td>17/26 études ne reproduisent pas l'effet</td></tr>
+      <tr><td>Patel & Iversen, 2007</td><td>Musique → langage</td><td>Plausible que la pratique musicale améliore les capacités verbales</td></tr>
+      <tr><td>Moreno et al., 2009/2011</td><td>Langage & lecture</td><td>↗ lecture après 6 mois de leçons, + vocabulaire</td></tr>
+      <tr><td>Jentschke & Koelsch, 2009</td><td>Syntaxe verbale</td><td>Détection incongruités syntaxiques plus tôt (10-11 ans)</td></tr>
+      <tr><td>Kraus et al., 2014</td><td>Milieu défavorisé & langage</td><td>2 ans minimum pour bénéfices sur discrimination syllabes</td></tr>
+      <tr><td>Sluming et al., 2002</td><td>Aire de Broca</td><td>+ SG stable avec l'âge chez musiciens (neuroprotection)</td></tr>
+      <tr><td>Degé, 2011</td><td>Mémoire CT</td><td>↗ MDT visuelle et auditive après 2 ans de cursus</td></tr>
+      <tr><td>Groussard et al., 2010</td><td>Hippocampe & mémoire</td><td>Hippocampe gauche modifié → habiletés mnésiques développées</td></tr>
+      <tr><td>Schellenberg, 2014</td><td>QI & musique</td><td>Piano/chant > QI ; théâtre > socialisation</td></tr>
+      <tr><td>Jaschke et al., 2018</td><td>Fonctions exécutives</td><td>+ inhibition, planification, QI verbal avec leçons structurées</td></tr>
+      <tr><td>Forgeard et al., 2008</td><td>Maths & musique</td><td>Facilitation maths (rythme → fractions)</td></tr>
+      <tr><td>Zatorre & Blood, 2001</td><td>Circuit récompense</td><td>Mêmes zones que plaisir alimentaire etc.</td></tr>
+      <tr><td>Mas-Herrero et al., 2014</td><td>Anhédonie musicale</td><td>BMRQ, 3 profils (hyper/standard/anhédonique)</td></tr>
+      <tr><td>Dumont et al., 2017</td><td>Revue de littérature</td><td>Résultats hétérogènes → diversité des méthodologies</td></tr>
+      <tr><td>Boduc</td><td>Comptines et lecture</td><td>Groupe musique > autres pour conscience phonologique (4-6 ans)</td></tr>
+    </table>
+  </div>
+
+  <div class="card c-red">
+    <h3>⛔ Récap des pièges à NE PAS faire</h3>
+    <ul>
+      <li>❌ Parler d'<strong>écoute musicale</strong> si le sujet demande la <strong>pratique musicale</strong></li>
+      <li>❌ Parler de <strong>plasticité cérébrale</strong> si le sujet demande les effets cognitifs</li>
+      <li>❌ Oublier de préciser l'âge du public (CE1 = 7-8 ans, CE2 = 8-9 ans)</li>
+      <li>❌ Citer des études adultes sans préciser "on peut extrapoler à l'enfant"</li>
+      <li>❌ Oublier la <strong>conclusion</strong></li>
+      <li>❌ Ne développer qu'1 ou 2 fonctions cognitives → en mettre au moins 3</li>
+      <li>❌ Présenter l'effet Mozart comme une vérité établie sans ses limites</li>
+      <li>❌ Passer plus d'une copie double (ce qui est en plus n'est pas noté)</li>
+    </ul>
+  </div>
+
+  <div class="key" style="background:linear-gradient(135deg,#fef3c7,#d1fae5);border-color:#6ee7b7;margin-top:1.5rem;">
+    <div class="key-icon">🌟</div>
+    <div class="key-text">
+      <strong>Take Home Message (conclusion du cours)</strong>
+      Plusieurs études mettent en évidence des effets positifs de la musique sur de nombreuses fonctions cognitives chez l'enfant. Ces résultats confirment l'intérêt de l'utiliser dans le contexte des apprentissages scolaires. Les futures études devront tenir compte des exigences méthodologiques pour confirmer ces effets ou en découvrir de nouveaux.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>🎵 Fiches UE 28 – Musique, Cognition & Cerveau · Basées sur les annales 2022–2025 · M. GROUSSARD · Université de Caen</p>
+  <p style="margin-top:.4rem;font-size:.8rem;opacity:.7;">
+    Liens utiles :
+    <a href="https://brams.org" target="_blank">BRAMS (labo Peretz)</a> ·
+    <a href="https://demos.philharmoniedeparis.fr" target="_blank">Projet Démos</a> ·
+    <a href="https://pubmed.ncbi.nlm.nih.gov/20637634/" target="_blank">Wan & Schlaug 2010 (PubMed)</a>
+  </p>
+  <p style="margin-top:.5rem;font-size:.82rem;opacity:.8;">Bon courage pour l'exam ! Tu peux le faire 💪🎶</p>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const t = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('pbar').style.width = (window.scrollY/t*100)+'%';
+});
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
